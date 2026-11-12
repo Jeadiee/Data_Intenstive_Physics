@@ -164,7 +164,7 @@ with open(MANIFEST_PATH, 'w', newline='') as f:
 
     for year in range(START_YEAR, END_YEAR + 1):
 
-    for month in range(1, 13):
+        for month in range(1, 13):
 
             start_date = date(year, month, 1)
 
