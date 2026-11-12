@@ -79,10 +79,26 @@ monthly_collection = (
 # Red One gave me validation here that this is smart. Good enough for me
 monthly_image = monthly_collection.toBands()
 
-# Reconstruct geographical tile
+# Reconstruct geographical tile and segment based on chunk ID (This is where we make our loaf into breadcrumbs)
 tile = ee.Geometry.Rectangle([
     float(chunk['xmin']),
     float(chunk['ymin']),
     float(chunk['xmax']),
     float(chunk['ymax'])
 ])
+
+# Restrict download to Uruguay
+countries = ee.FeatureCollection(
+    'FAO/GAUL_SIMPLIFIED_500m/2015/level0'  # google recommends this as quicker if you don't need the full resolution (i.e coastal data). We don't.
+)
+
+uruguay = countries.filter(
+    ee.Filter.eq('ADM0_NAME', 'Uruguay')
+)
+
+study_area = uruguay.geometry()
+
+# Using 50m error margin to balance speed and accuracy. Prevents timeout. 100m is a good guess. 
+download_region = tile.intersection(
+    study_area, ee.ErrorMargin(100)
+)
