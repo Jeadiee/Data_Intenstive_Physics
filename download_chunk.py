@@ -14,7 +14,7 @@ ee.Initialize(project='datintensivephysics')
 chunk_ID = int(sys.argv[1])
 
 # Work dir that bp documentation recommends for data storage. (1Tb limit)
-output_dir = '/user/work/uo23496/'
+output_dir = '/user/work/uo23496/ERA5/'
 
 # ERA5 variables chosen (see Onenote for this. Seem reasonable)
 variables = [
@@ -49,8 +49,8 @@ year = int(chunk['year'])
 month = int(chunk['month'])
 tile_id = int(chunk['tile_id'])
 
-# Output filename with f string. Pads months i.e 5 as 05 instead. Why not. 
-filename = f'ERA5_{year}_{month:02d}_tile_{tile_id}.tif'
+#  Get the filename from the chunk. this previously created slightly different filename in the manifest.
+filename = chunk["filename"]
 
 # Full path to the output file
 output_path= os.path.join(output_dir, filename)
@@ -133,4 +133,5 @@ for attempt in range(3):
         if attempt == 2:
             raise
 
+        # wait 10 seconds before retrying.
         time.sleep(10)
