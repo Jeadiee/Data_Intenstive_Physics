@@ -102,3 +102,12 @@ study_area = uruguay.geometry()
 download_region = tile.intersection(
     study_area, ee.ErrorMargin(100)
 )
+
+# Request direct download URL
+params = {
+    'name': filename.replace('.tif', ''),     # prevents double .tif in the filename.
+    'region': download_region,
+    'scale': 11132,                           # the standard number used for ERA5(something about 11132m per degree at the equator)
+    'format': 'GEO_TIFF'                      # I have read that this is the best format for raster data. I also dont want a .zip file.
+}
+
