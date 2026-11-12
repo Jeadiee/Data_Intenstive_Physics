@@ -111,3 +111,26 @@ params = {
     'format': 'GEO_TIFF'                      # I have read that this is the best format for raster data. I also dont want a .zip file.
 }
 
+# try 3 times. 
+for attempt in range(3):
+    try:
+        # Get the download URL and download the file
+        url = monthly_image.getDownloadURL(params)
+        # 300 second timeout to avoid timeout errors. This is a long download.
+        response = requests.get(url, timeout=300)
+        # raise an error if the request was unsuccessful
+        response.raise_for_status()
+        # Write the content to a file. 'wb' mode is used to write binary data, which is appropriate for image files.
+        with open(output_path, 'wb') as file:
+            file.write(response.content)
+
+        print(f'Successfully downloaded!!!! {filename}. Beep boop beep...')
+        break
+
+    except Exception as error:
+        print(f'Attempt {attempt + 1} failed: {error}')
+
+        if attempt == 2:
+            raise
+
+        time.sleep(10)
