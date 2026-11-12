@@ -14,6 +14,4 @@ module add languages/python
 
 cd /user/home/uo23496/Data_Intenstive_Physics
 
-which python
-python --version
 python generate_manifest.py
