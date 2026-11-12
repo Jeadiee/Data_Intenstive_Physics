@@ -7,6 +7,6 @@
 #SBATCH --output=logs/manifest_%j.out
 #SBATCH --error=logs/manifest_%j.err
 
-cd /user/work/uo23496/ERA5
+cd /user/home/uo23496
 
 python generate_manifest.py
