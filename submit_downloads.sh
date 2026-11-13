@@ -8,5 +8,10 @@
 #SBATCH --output=logs/era5_%A_%a.out
 #SBATCH --error=logs/era5_%A_%a.err
 
+set -euo pipefail
+
+module add languages/python
+cd /user/home/uo23496/Data_Intenstive_Physics
+
 # Download assigned chunk
 python download_chunk.py $SLURM_ARRAY_TASK_ID

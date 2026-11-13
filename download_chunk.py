@@ -40,7 +40,7 @@ variables = [
 
 # Read the manifest file and get the chunk corresponding to the provided chunk_ID
 # newline recommended from stack overflow to avoid issues with line endings in CSV files.
-with open('manifest.csv', newline ='') as csvfile:
+with open('manifest_ERA5.csv', newline ='') as csvfile:
     chunks = list(csv.DictReader(csvfile))
 
 chunk = chunks[chunk_ID]
