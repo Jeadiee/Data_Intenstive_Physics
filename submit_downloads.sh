@@ -2,7 +2,7 @@
 
 #SBATCH --job-name=ERA5_download
 #SBATCH --cpus-per-task=1
-#SBATCH --mem=4G
+#SBATCH --mem=2G
 #SBATCH --time=02:00:00
 #SBATCH --account=phys040684
 #SBATCH --output=logs/era5_%A_%a.out
