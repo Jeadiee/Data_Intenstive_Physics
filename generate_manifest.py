@@ -9,8 +9,6 @@ ee.Initialize(project='datintensivephysics')
 
 
 # Define our study area as Uruguay using the FAO GAUL dataset
-
-
 countries = ee.FeatureCollection(
     'FAO/GAUL_SIMPLIFIED_500m/2015/level0'
 )
@@ -27,12 +25,12 @@ START_YEAR = 2001
 END_YEAR = 2024
 
 # Define the spatial tile size in degrees. This will be used to create a grid of tiles over the study area. 3 is seems reasonable for Uruguay. (Jack keeps things simple)
-TILE_DEG = 3
+TILE_DEG = 1
 
 OUTPUT_DIR = '/user/work/uo23496/ERA5/'
 
 # name of the manifest file. 
-MANIFEST_PATH = 'manifest.csv'
+MANIFEST_PATH = 'manifest_ERA5.csv'
 
 DATASET = 'ECMWF/ERA5_LAND/DAILY_AGGR'
 
@@ -227,7 +225,7 @@ with open(MANIFEST_PATH, 'w', newline='') as f:
 
                 total_chunks += 1
 
-print('\nManifest successfully generated.')
+print('\nManifest successfully generated. Yayyyy!')
 
 print(f'Years: {START_YEAR}-{END_YEAR}')
 print(f'Months: {(END_YEAR - START_YEAR + 1) * 12}')
