@@ -187,6 +187,7 @@ with open(MANIFEST_PATH, 'w', newline='') as f:
 
                 filename = f'{chunk_id}.tif'
 
+                # writing the files of the manifest. This will create a CSV file with the metadata for each chunk. RedOne suggested this.
                 writer.writerow({
 
                     'chunk_id': chunk_id,
@@ -215,6 +216,7 @@ with open(MANIFEST_PATH, 'w', newline='') as f:
 
                     'filename': filename,
 
+                    # we will set the status to PENDING for now. This will be updated when the chunk is downloaded
                     'status': 'PENDING',
 
                     'file_size_bytes': '',
@@ -232,4 +234,4 @@ print(f'Months: {(END_YEAR - START_YEAR + 1) * 12}')
 print(f'Spatial tiles: {len(tiles)}')
 print(f'Total chunks: {total_chunks}')
 
-print(f'Manifest: {MANIFEST_PATH}')
+print(f'\nManifest: {MANIFEST_PATH}')
