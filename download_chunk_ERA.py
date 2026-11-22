@@ -127,6 +127,7 @@ for attempt in range(3):
         print(f'Successfully downloaded!!!! {filename}. Beep boop beep...')
         break
 
+    # Exception will print the error and retry up to 3 times. If it fails 3 times, it will raise the error.
     except Exception as error:
         print(f'Attempt {attempt + 1} failed: {error}')
 

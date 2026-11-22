@@ -1,4 +1,5 @@
 pandas 
-os 
 xarray
 rasterio
+earthengine-api
+requests
