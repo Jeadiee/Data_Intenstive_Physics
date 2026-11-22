@@ -1,0 +1,17 @@
+Just a thought about how we could make this project generalisable. 
+
+Obviously, if we are to train our model on Uruguay, given the climate is unique, making predictions on other regions would likely not generalise well. 
+
+Perhaps we could look at taking inputs for our model. i.e countries. Using these, the model could automatically run the analysis. For the client, however, this 
+would likely not be be something they would do (the training). 
+
+I think it would be best to make the code generalised so that I can chnage the country and train the model for different regions. 
+Those regions and probability maps could be implemented into an interactive dashboard where you could choose which country you'd like to look at. 
+
+
+i.e, you have the option (tick box of MAX 1 country) and then this overlays the wildifire probability map where regions are broken down into an inferable 
+value/metric usable by an insurer. 
+
+It would be nice to give other options for the overlay too. i.e historic wildfire locations/ burnt areas + other things (to be decided)
+
+Bokeh is a nice option for this. I know geemap works but I havent yet looked at if you can overlay on this.
