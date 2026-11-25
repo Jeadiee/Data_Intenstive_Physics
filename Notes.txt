@@ -15,3 +15,11 @@ value/metric usable by an insurer.
 It would be nice to give other options for the overlay too. i.e historic wildfire locations/ burnt areas + other things (to be decided)
 
 Bokeh is a nice option for this. I know geemap works but I havent yet looked at if you can overlay on this.
+
+
+Gen Ai: 
+- think about how you could create some new fire data perhaps. It will be obvious that the number of points where there are 
+fires will be sparce. A paper i read said the quality and performance of the model improves with the quality 
+of this labelling. 
+
+- Look at domain adaptation. Mapping different MRI images to be similar to that in which you have trained. 
